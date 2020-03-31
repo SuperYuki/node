@@ -8,7 +8,7 @@ var msg;
 server.on('request', function(req, res) {
     // ファイルを読み込む処理は時間がかかるので、callbackにして、ノンブロッキング処理にする
     fs.readFile(__dirname + '/hello.html', 'utf-8', function (err, data) {
-        // エラー発生時
+        // エラー発生時処理
         if (err) {
             res.writeHead(404, {'Content-Type' : 'text/plain'});
             res.write('page not found');
@@ -26,6 +26,3 @@ server.on('request', function(req, res) {
 // 第1引数: ポート番号
 // 第2引数: IPアドレス
 server.listen(config.port);
-
-
-
